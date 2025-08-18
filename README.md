@@ -5,7 +5,7 @@
 ![HTML5](https://img.shields.io/badge/HTML5-orange?logo=html5)
 ![CSS3](https://img.shields.io/badge/CSS3-blue?logo=css3)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript)
-![MaterializeCSS](https://img.shields.io/badge/MaterializeCSS-1.0-teal?logo=material-design)
+[![MaterializeCSS](https://pbs.twimg.com/profile_images/532662364613525504/GN559Lfb_reasonably_small.png)](https://materializecss.com/)
 ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green?logo=mongodb)
 
 🌱 Garden Almanac (Flask)
