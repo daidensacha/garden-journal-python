@@ -76,7 +76,7 @@ Here’s the app in action:
 
 ### Custom 404 Page
 
-![](/documentation/images/404.png)
+![404-page-not-found](/documentation/images/404-page-not-found.jpg) 
 
 ---
 
