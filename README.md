@@ -66,13 +66,13 @@ It also introduced me to **templating (Jinja2)** and organizing a Python Flask a
 
 Here’s the app in action:
 
-### Dashboard
+### Add Category
 
-![](/documentation/images/dashboard.png)
+![](/documentation/images/add_category_plant.png)
 
-### Add Entry Form
+### Add Event Entry Form
 
-![](/documentation/images/add-entry.png)
+![](/documentation/images/event-normal.png)
 
 ### Custom 404 Page
 
