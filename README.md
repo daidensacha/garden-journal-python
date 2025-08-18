@@ -1,5 +1,13 @@
 ![](/documentation/images/summer-readme.png)
 
+![Python](https://img.shields.io/badge/Python-3.9-blue?logo=python)
+![Flask](https://img.shields.io/badge/Flask-2.0-black?logo=flask)
+![HTML5](https://img.shields.io/badge/HTML5-orange?logo=html5)
+![CSS3](https://img.shields.io/badge/CSS3-blue?logo=css3)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript)
+![MaterializeCSS](https://img.shields.io/badge/MaterializeCSS-1.0-teal?logo=material-design)
+![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green?logo=mongodb)
+
 🌱 Garden Almanac (Flask)
 
 A digital garden journal built with **Python Flask** and a simple **HTML/CSS/JS frontend**.
@@ -15,11 +23,10 @@ It focuses on CRUD operations, user inputs, and rendering a timeline-style UI fo
 ---
 
 ## 🛠 Tech Stack
-
-- 🐍 **Backend**: Python (Flask)
-- 🖥 **Frontend**: HTML, CSS, JavaScript
-- 🗄 **Database**: SQLite
-- 🎨 **Styling**: Custom CSS
+- 🐍 Python (Flask)
+- 🎨 MaterializeCSS
+- 🖥 HTML5, CSS, JavaScript
+- 🗄 MongoDB (Atlas)
 
 ---
 
