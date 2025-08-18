@@ -62,7 +62,17 @@ It also introduced me to **templating (Jinja2)** and organizing a Python Flask a
 
 ## 📸 Screenshots
 
-*(Optional: add 1–2 screenshots or a short GIF demo here)*
+### Dashboard
+
+![Dashboard](documentation/images/dashboard.png)
+
+### Add Entry Form
+
+![Add Entry Form](documentation/images/add-entry.png)
+
+### Custom 404 Page
+
+![404 Page](documentation/images/404.png)
 
 ---
 
