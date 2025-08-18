@@ -38,23 +38,57 @@ It focuses on CRUD operations, user inputs, and rendering a timeline-style UI fo
 
 ---
 
-## 🔑 Installation
+## 🔧 Installation & Running
+
+### 1. Prerequisites
+
+- Python **3.9+** (recommended: 3.9.x for compatibility)
+- pip (Python package manager)
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) connection string
+
+### 2. Clone & Setup
 
 ```bash
 # Clone the repository
 git clone https://github.com/daidensacha/mp3-garden-journal.git
 cd mp3-garden-journal
 
-# (Optional) create a virtual environment
-python3 -m venv venv
-source venv/bin/activate
+# Create and activate virtual environment
+python3.9 -m venv .venv
+source .venv/bin/activate   # On Windows: .venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
+```
 
-# Run the Flask app
+### 3. Environment Variables
+
+Create an `env.py` file in the project root (gitignored). Example
+
+```python
+import os
+
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("SECRET_KEY", "your-secret-key")
+os.environ.setdefault(
+    "MONGO_URI",
+    "mongodb+srv://<username>:<password>@<cluster>.mongodb.net/garden_master?retryWrites=true&w=majority"
+)
+os.environ.setdefault("MONGO_DBNAME", "garden_master")
+```
+
+### 4. Run the App
+
+```bash
+python app.py
+#or
 flask run
 ```
+
+The app will start at:
+👉 http://127.0.0.1:5000
+👉 or http://localhost:5000
 
 ---
 
@@ -120,6 +154,11 @@ Here’s the app in action:
 ## 📜 License
 
 MIT License — feel free to fork and adapt.
+
+![License](https://img.shields.io/github/license/daidensacha/mp3-garden-journal)
+![Last Commit](https://img.shields.io/github/last-commit/daidensacha/mp3-garden-journal)
+![Open Issues](https://img.shields.io/github/issues/daidensacha/mp3-garden-journal)
+![Tech](https://img.shields.io/badge/stack-Python%20%7C%20Flask%20%7C%20MongoDB-blue)
 
 ---
 
