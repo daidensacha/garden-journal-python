@@ -2,14 +2,14 @@
 
 🌱 Garden Almanac (Flask)
 
-A digital garden journal built with **Python Flask** and a simple **HTML/CSS/JS frontend**.  
+A digital garden journal built with **Python Flask** and a simple **HTML/CSS/JS frontend**.
 Users can log entries about their plants, track progress over time, and view a timeline of gardening activity.
 
 ---
 
 ## 📖 Overview
 
-This project was developed as part of my **Code Institute Full-Stack Diploma (MP3)**.  
+This project was developed as part of my **Code Institute Full-Stack Diploma (MP3)**.
 It focuses on CRUD operations, user inputs, and rendering a timeline-style UI for garden notes.
 
 ---
@@ -25,10 +25,10 @@ It focuses on CRUD operations, user inputs, and rendering a timeline-style UI fo
 
 ## 🚀 Features
 
-- Add, edit, and delete garden entries 🌼  
-- Timeline view of plant progress  
-- Search/filter entries  
-- Responsive layout  
+- Add, edit, and delete garden entries 🌼
+- Timeline view of plant progress
+- Search/filter entries
+- Responsive layout
 
 ---
 
@@ -54,8 +54,8 @@ flask run
 
 ## 🌿 Project Background
 
-This was my **Milestone Project 3** during the Code Institute diploma.  
-The goal was to demonstrate **full CRUD functionality**, data persistence, and a user-friendly UI.  
+This was my **Milestone Project 3** during the Code Institute diploma.
+The goal was to demonstrate **full CRUD functionality**, data persistence, and a user-friendly UI.
 It also introduced me to **templating (Jinja2)** and organizing a Python Flask app with routes and models.
 
 ---
@@ -66,17 +66,37 @@ It also introduced me to **templating (Jinja2)** and organizing a Python Flask a
 
 Here’s the app in action:
 
-### Add Category
+### Home
 
-![](/documentation/images/add_category_plant.png)
+![](/documentation/images/screenshots/home.jpg)
 
-### Add Event Entry Form
+### Add Plant
 
-![](/documentation/images/event-normal.png)
+![](/documentation/images/screenshots/add_plant.jpg)
+
+### Added Plant
+
+![](/documentation/images/screenshots/added_plant.jpg)
+
+### Added Categories
+
+![](/documentation/images/screenshots/added_categories.jpg)
+
+### Added Event (Folded accordion)
+
+![](/documentation/images/screenshots/added_event1.jpg)
+
+### Added Event (Open accordion)
+
+![](/documentation/images/screenshots/added_event2.jpg)
+
+### User Profile
+
+![](/documentation/images/screenshots/user_profile.jpg)
 
 ### Custom 404 Page
 
-![404-page-not-found](/documentation/images/404-page-not-found.jpg) 
+![404-page-not-found](/documentation/images/404-page-not-found.jpg)
 
 ---
 
@@ -84,10 +104,10 @@ Here’s the app in action:
 
 ## 🔮 Future Improvements
 
-- Add user authentication (login & register)  
-- Weather API integration for contextual gardening data  
-- Switch database from SQLite → PostgreSQL for deployment  
-- Mobile-first redesign with Tailwind CSS  
+- Add user authentication (login & register)
+- Weather API integration for contextual gardening data
+- Switch database from SQLite → PostgreSQL for deployment
+- Mobile-first redesign with Tailwind CSS
 
 ---
 
@@ -97,4 +117,4 @@ MIT License — feel free to fork and adapt.
 
 ---
 
-> _“A garden is a grand teacher. It teaches patience and careful watchfulness.”_  
+> _“A garden is a grand teacher. It teaches patience and careful watchfulness.”_
