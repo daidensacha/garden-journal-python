@@ -1,0 +1,8 @@
+{
+  "version": "2",
+  "phaseApp": "garden-journal-python ",
+  "appId": "4d7bf220-e8d8-4815-a1ab-399f861cd88f",
+  "defaultEnv": "Development",
+  "envId": "2297878c-cca5-47ec-a9f0-4102a8790774",
+  "monorepoSupport": false
+}

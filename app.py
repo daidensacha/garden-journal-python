@@ -1,6 +1,5 @@
 
 import os
-import pandas as pd
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -9,9 +8,13 @@ from bson.objectid import ObjectId
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from forms import ContactForm
+
+# Safe defaults for local dev
+os.environ.setdefault("IP", "127.0.0.1")
+os.environ.setdefault("PORT", "5050")
+
 if os.path.exists("env.py"):
     import env
-
 
 app = Flask(__name__)
 
@@ -22,6 +25,14 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+def parse_date(value):
+    """
+    Convert an HTML <input type="date"> string (YYYY-MM-DD) into a datetime.
+    Returns "" unchanged (so your existing empty-string logic still works).
+    """
+    if value in (None, ""):
+        return value
+    return datetime.strptime(value, "%Y-%m-%d")
 
 @app.route("/")
 def home():
@@ -291,7 +302,7 @@ def add_event():
     if "user" in session:
         if request.method == "POST":
             date_string = request.form.get("add_occurs_at")
-            date_object = pd.to_datetime(date_string)
+            date_object = parse_date(date_string)
             event_plant_id = request.form.get("add_event_plant_id")
             month = date_object.strftime("%B")
 
@@ -344,7 +355,7 @@ def edit_event(event_id):
     if "user" in session:
         if request.method == "POST":
             date_string = request.form.get("edit_occurs_at")
-            date_object = pd.to_datetime(date_string)
+            date_object = parse_date(date_string)
             month = date_object.strftime("%B")
             # Store plant ObjectId string in variable
             event_plant_id = request.form.get("edit_event_plant_id")
@@ -407,29 +418,33 @@ def delete_event(event_id):
 def add_plant():
     if "user" in session:
         if request.method == "POST":
-            sowing_date_string = request.form.get("add_sow_at")
-            planting_date_string = request.form.get("add_plant_at")
-            harvest_from_string = request.form.get("add_harvest_from")
-            harvest_to_string = request.form.get("add_harvest_to")
-            if sowing_date_string == "":
-                sowing_date_object = sowing_date_string
-            else:
-                sowing_date_object = pd.to_datetime(sowing_date_string)
+            sowing_date_object = parse_date(request.form.get("add_sow_at"))
+            planting_date_object = parse_date(request.form.get("add_plant_at"))
+            harvest_from_object = parse_date(request.form.get("add_harvest_from"))
+            harvest_to_object = parse_date(request.form.get("add_harvest_to"))
+            # sowing_date_string = request.form.get("add_sow_at")
+            # planting_date_string = request.form.get("add_plant_at")
+            # harvest_from_string = request.form.get("add_harvest_from")
+            # harvest_to_string = request.form.get("add_harvest_to")
+            # if sowing_date_string == "":
+            #     sowing_date_object = sowing_date_string
+            # else:
+            #     sowing_date_object = parse_date(sowing_date_string)
 
-            if planting_date_string == "":
-                planting_date_object = planting_date_string
-            else:
-                planting_date_object = pd.to_datetime(planting_date_string)
-            if harvest_from_string == "":
-                harvest_from_object = harvest_from_string
-            else:
-                harvest_from_object = pd.to_datetime(harvest_from_string)
-            if harvest_to_string == "":
-                harvest_to_object = harvest_to_string
-            else:
-                harvest_to_object = pd.to_datetime(harvest_to_string)
-            # harvest_from_object = pd.to_datetime(harvest_from_string)
-            # harvest_to_object = pd.to_datetime(harvest_to_string)
+            # if planting_date_string == "":
+            #     planting_date_object = planting_date_string
+            # else:
+            #     planting_date_object = parse_date(planting_date_string)
+            # if harvest_from_string == "":
+            #     harvest_from_object = harvest_from_string
+            # else:
+            #     harvest_from_object = parse_date(harvest_from_string)
+            # if harvest_to_string == "":
+            #     harvest_to_object = harvest_to_string
+            # else:
+            #     harvest_to_object = parse_date(harvest_to_string)
+            # harvest_from_object = parse_date(harvest_from_string)
+            # harvest_to_object = parse_date(harvest_to_string)
 
             plant = {
                 "type": request.form.get("add_plant_type"),
@@ -465,21 +480,21 @@ def edit_plant(plant_id):
             if sowing_date_string == "":
                 sowing_date_object = sowing_date_string
             else:
-                sowing_date_object = pd.to_datetime(sowing_date_string)
+                sowing_date_object = parse_date(sowing_date_string)
             if planting_date_string == "":
                 planting_date_object = planting_date_string
             else:
-                planting_date_object = pd.to_datetime(planting_date_string)
+                planting_date_object = parse_date(planting_date_string)
             if harvest_from_string == "":
                 harvest_from_object = harvest_from_string
             else:
-                harvest_from_object = pd.to_datetime(harvest_from_string)
+                harvest_from_object = parse_date(harvest_from_string)
             if harvest_to_string == "":
                 harvest_to_object = harvest_to_string
             else:
-                harvest_to_object = pd.to_datetime(harvest_to_string)
-            # harvest_from_object = pd.to_datetime(harvest_from_string)
-            # harvest_to_object = pd.to_datetime(harvest_to_string)
+                harvest_to_object = parse_date(harvest_to_string)
+            # harvest_from_object = parse_date(harvest_from_string)
+            # harvest_to_object = parse_date(harvest_to_string)
 
             submit = {
                 "type": request.form.get("edit_plant_type"),
