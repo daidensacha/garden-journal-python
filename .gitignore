@@ -2,7 +2,7 @@ core.Microsoft*
 core.mongo*
 core.python*
 env.py
-env.py.bak
+env.py.bkp
 .venv/
 __pycache__/
 *.py[cod]

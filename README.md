@@ -1,69 +1,69 @@
-![](/documentation/images/summer-readme.png)
+# Garden Journal (Python Flask)
 
-![Python](https://img.shields.io/badge/Python-3.9-blue?logo=python)
-![Flask](https://img.shields.io/badge/Flask-2.0-black?logo=flask)
-![HTML5](https://img.shields.io/badge/HTML5-orange?logo=html5)
-![CSS3](https://img.shields.io/badge/CSS3-blue?logo=css3)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript)
-![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green?logo=mongodb)
-
-🌱 Garden Almanac (Flask)
-
-A digital garden journal built with **Python Flask** and a simple **HTML/CSS/JS frontend**.
+A digital garden journal built with **Python Flask** and a simple **HTML / CSS / JavaScript frontend**.
 Users can log entries about their plants, track progress over time, and view a timeline of gardening activity.
 
 ---
 
 ## 📖 Overview
 
-This project was developed as part of my **Code Institute Full-Stack Diploma (MP3)**.
-It focuses on CRUD operations, user inputs, and rendering a timeline-style UI for garden notes.
+This project was developed as part of my **Code Institute Full‑Stack Diploma (Milestone Project 3)**.
+It focuses on CRUD operations, user input handling, MongoDB data modeling, and server‑rendered templates using Jinja.
+
+The repository contains historical documentation from the original submission as well as a cleaned‑up, modernized setup guide for local development.
 
 ---
 
 ## 🛠 Tech Stack
-- 🐍 Python (Flask)
-- 🎨 MaterializeCSS
-- 🖥 HTML5, CSS, JavaScript
+
+- 🐍 Python 3.9 (original target)
+- 🌶 Flask 2.x
 - 🗄 MongoDB (Atlas)
+- 🎨 MaterializeCSS
+- 🖥 HTML5, CSS3, JavaScript
+- 🧩 Jinja2 Templates
 
 ---
 
 ## 🚀 Features
 
-- Add, edit, and delete garden entries 🌼
+- Add, edit, and delete garden entries 🌱
 - Timeline view of plant progress
-- Search/filter entries
-- Responsive layout
+- Category‑based organization
+- Search and filtering
+- Responsive UI
 
 ---
 
-## 🔧 Installation & Running
+## 🔧 Local Development Setup
 
 ### 1. Prerequisites
 
-- Python **3.9+** (recommended: 3.9.x for compatibility)
-- pip (Python package manager)
-- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) connection string
+- Python **3.9.x** (recommended for current compatibility)
+- pip
+- MongoDB Atlas account
 
 ### 2. Clone & Setup
 
 ```bash
-# Clone the repository
 git clone https://github.com/daidensacha/mp3-garden-journal.git
 cd mp3-garden-journal
 
-# Create and activate virtual environment
 python3.9 -m venv .venv
-source .venv/bin/activate   # On Windows: .venv\Scripts\activate
+source .venv/bin/activate
 
-# Install dependencies
 pip install -r requirements.txt
 ```
 
-### 3. Environment Variables
+---
 
-Create an `env.py` file in the project root (gitignored). Example
+## 🔐 Environment Variables
+
+You may choose **either** a local `env.py` file **or** Phase for secret management.
+
+### Option A — env.py (classic)
+
+Create an `env.py` file in the project root (gitignored):
 
 ```python
 import os
@@ -73,92 +73,110 @@ os.environ.setdefault("PORT", "5000")
 os.environ.setdefault("SECRET_KEY", "your-secret-key")
 os.environ.setdefault(
     "MONGO_URI",
-    "mongodb+srv://<username>:<password>@<cluster>.mongodb.net/garden_master?retryWrites=true&w=majority"
+    "mongodb+srv://<user>:<pass>@<cluster>.mongodb.net/garden_master"
 )
 os.environ.setdefault("MONGO_DBNAME", "garden_master")
 ```
 
-### 4. Run the App
+Ensure `env.py` is listed in `.gitignore`.
+
+---
+
+### Option B — Phase (recommended)
+
+Store secrets using Phase:
+
+```bash
+phase secrets set SECRET_KEY
+phase secrets set MONGO_URI
+phase secrets set MONGO_DBNAME
+```
+
+Run the app with injected secrets:
+
+```bash
+phase run "python app.py"
+```
+
+Phase replaces `env.py` entirely and is safer for long‑term maintenance.
+
+---
+
+## ▶️ Running the App
 
 ```bash
 python app.py
-#or
-flask run
 ```
 
-The app will start at:
-👉 http://127.0.0.1:5000
-👉 or http://localhost:5000
+The app will be available at:
+
+- http://127.0.0.1:5000
+- http://localhost:5000
 
 ---
 
-## 🌿 Project Background
+## 🔮 Upgrade Path (Recommended)
 
-This was my **Milestone Project 3** during the Code Institute diploma.
-The goal was to demonstrate **full CRUD functionality**, data persistence, and a user-friendly UI.
-It also introduced me to **templating (Jinja2)** and organizing a Python Flask app with routes and models.
+This project is stable but based on an older stack.
+To extend its lifespan, follow this incremental upgrade path.
 
----
+### Step 1 — Python
 
----
+Current:
+- Python 3.9
 
-## 📸 Screenshots
+Upgrade path:
+- Python 3.11 (recommended next step)
+- Python 3.13 (later, once dependencies support it)
 
-Here’s the app in action:
-
-### Home
-
-![](/documentation/images/screenshots/home.jpg)
-
-### Add Plant
-
-![](/documentation/images/screenshots/add_plant.jpg)
-
-### Added Plant
-
-![](/documentation/images/screenshots/added_plant.jpg)
-
-### Added Categories
-
-![](/documentation/images/screenshots/added_categories.jpg)
-
-### Added Event (Folded accordion)
-
-![](/documentation/images/screenshots/added_event1.jpg)
-
-### Added Event (Open accordion)
-
-![](/documentation/images/screenshots/added_event2.jpg)
-
-### User Profile
-
-![](/documentation/images/screenshots/user_profile.jpg)
-
-### Custom 404 Page
-
-![404-page-not-found](/documentation/images/404-page-not-found.jpg)
+Actions:
+- Create a fresh virtual environment per version
+- Resolve deprecations and warnings
+- Re‑freeze dependencies
 
 ---
 
+### Step 2 — Dependencies
+
+- Upgrade Flask incrementally (2.x → latest 2.x)
+- Review breaking changes in:
+  - Flask
+  - Werkzeug
+  - Jinja2
+- Replace deprecated APIs
+- Pin versions explicitly in `requirements.txt`
+
 ---
 
-## 🔮 Future Improvements
+### Step 3 — Flask Modernization (Optional)
 
-- Add user authentication (login & register)
-- Weather API integration for contextual gardening data
-- Switch database from SQLite → PostgreSQL for deployment
-- Mobile-first redesign with Tailwind CSS
+- Migrate to application factory pattern
+- Introduce `flask run` with `.flaskenv`
+- Replace `env.py` with Phase or `.env`
+- Add type hints and linting
+
+---
+
+### Step 4 — Architecture Improvements (Optional)
+
+- Blueprint separation
+- Service layer for MongoDB logic
+- Switch MaterializeCSS → Tailwind
+- Add authentication via Flask‑Login or migrate to Django / Next.js backend
+
+---
+
+## 📁 Documentation
+
+- `README_OLD.md` — original submission documentation
+- `/documentation/` — testing, UX, schema, and screenshots
+- This README — cleaned, current development guide
 
 ---
 
 ## 📜 License
 
-MIT License — feel free to fork and adapt.
-
-![License](https://img.shields.io/github/license/daidensacha/mp3-garden-journal)
-![Last Commit](https://img.shields.io/github/last-commit/daidensacha/mp3-garden-journal)
-![Open Issues](https://img.shields.io/github/issues/daidensacha/mp3-garden-journal)
-![Tech](https://img.shields.io/badge/stack-Python%20%7C%20Flask%20%7C%20MongoDB-blue)
+MIT License — feel free to fork, study, and adapt.
 
 ---
 
